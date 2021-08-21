@@ -36,7 +36,7 @@ const tourSchema = new mongoose.Schema(
       default: 4.5,
       min: [1, 'Rating must be above 1.0'],
       max: [5, 'Rating must be below 5.0'],
-      set: val => Math.round(val * 10) / 10 // 4.666666, 46.6666, 47, 4.7
+      set: val => Math.round(val * 10) / 10 
     },
     ratingsQuantity: {
       type: Number,
@@ -50,7 +50,7 @@ const tourSchema = new mongoose.Schema(
       type: Number,
       validate: {
         validator: function(val) {
-          // this only points to current doc on NEW document creation
+          
           return val < this.price;
         },
         message: 'Discount price ({VALUE}) should be below regular price'
@@ -81,7 +81,7 @@ const tourSchema = new mongoose.Schema(
       default: false
     },
     startLocation: {
-      // GeoJSON
+      
       type: {
         type: String,
         default: 'Point',
